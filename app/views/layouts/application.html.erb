@@ -36,12 +36,28 @@
       </li>
       <li class="nav-item">
       <a class="nav-link" <%= link_to 'Contact', contact_path %> </a>
+      </ul>
+      
+      <ul class="navbar-nav my-2 my-lg-0">
+        <% if !current_user%> 
       <li class="nav-item">
+      <button class="btn btn-light" role="button" aria-pressed="true"><%=link_to 'CONNEXION', new_session_path %></button>
+      </li>
       <a class="nav-link" <%= link_to 'S\'inscrire', new_user_path %> </a>
       </li>
+
+      <% else %>
+      <li class="nav-item">
+      <a class="nav-link btn" <%= link_to '#{@current_user.first_name}', user_path(current_user.id) %></a>
+      </li>
+      <li class="nav-item">
+      <a class="nav-link btn btn-danger" <%= link_to 'Se déconnecter', session_path(session[:user_id]), method: :delete, data: {confirm: 'Êtes-vous sûr de vous déconnecter ?'} %> </a>
+      </li>
+       <% end %>
       </ul>
-      <ul class="navbar-nav my-2 my-lg-0">
-      <button class="btn btn-light" role="button" aria-pressed="true"><%=link_to 'CONNEXION', new_session_path %></button>
+
+      
+
       </ul>
   </div>
 
