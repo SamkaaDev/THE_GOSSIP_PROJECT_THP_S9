@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
 
 	def create
 		@gossip = Gossip.all.find(params[:gossip_id])
-		@comment = Comment.create(content: post_params[:content], gossip: @gossip, user: User.last)
+		@comment = Comment.create(content: post_params[:content], gossip: @gossip, user: current_user)
 		puts "£" * 60
 		puts post_params[:content]
 		puts "£" * 60
@@ -31,7 +31,7 @@ class CommentsController < ApplicationController
 		@comment = Comment.find(params[:id])
 		@gossip = Gossip.find(params[:gossip_id])
 
-	    if @comment.update(content: params[:content], user: User.last)
+	    if @comment.update(content: params[:content], user: current_user)
 	      flash[:success2] = " "
 	      redirect_to gossip_path(params[:gossip_id])
 	     else

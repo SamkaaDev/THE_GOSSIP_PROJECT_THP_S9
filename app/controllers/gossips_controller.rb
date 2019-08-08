@@ -37,10 +37,10 @@ class GossipsController < ApplicationController
 
   def update
     @gossip = Gossip.find(params[:id])
-    tag = Tag.find(params[:tag])
-    join_table_gossip_tag = JoinTableGossipTag.where(gossip_id: @gossip.id)
-    join_table_gossip_tag.each do |join| join.update(gossip: @gossip, tag: tag)
-    end
+    #tag = Tag.find(params[:tag])
+    #join_table_gossip_tag = JoinTableGossipTag.where(gossip_id: @gossip.id)
+    #join_table_gossip_tag.each do |join| join.update(gossip: @gossip, tag: tag)
+    #end
     
     if @gossip.update(title: params[:title], content: params[:content], user: User.last)
       flash[:success] = "Ton gossip est bien modifié !"
