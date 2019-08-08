@@ -48,7 +48,7 @@
 
       <% else %>
       <li class="nav-item">
-      <a class="nav-link btn" <%= link_to '#{@current_user.first_name}', user_path(current_user.id) %></a>
+      <a class="nav-link btn" <%= link_to 'Mon compte', user_path(current_user.id) %></a>
       </li>
       <li class="nav-item">
       <a class="nav-link btn btn-danger" <%= link_to 'Se déconnecter', session_path(session[:user_id]), method: :delete, data: {confirm: 'Êtes-vous sûr de vous déconnecter ?'} %> </a>
