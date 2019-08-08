@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   resources :gossips do
   resources :comments
   end
+
+  resources :sessions, only: [:new, :create, :destroy]
+  
   #get 'users/:id', to:'user#show', as: 'users'
   #get 'gossips/:id', to:'gossip#show', as: 'gossips'
   get 'welcome/:user_entry', to: 'welcome#show'
