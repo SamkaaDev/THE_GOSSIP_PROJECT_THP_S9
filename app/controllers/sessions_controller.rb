@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
 
 	def new
 
-	# @session = Session.new
+	#@session = Session.new
 		
 	end
 
@@ -16,7 +16,8 @@ class SessionsController < ApplicationController
 	  if user && user.authenticate(params[:password])
 	    session[:user_id] = user.id
 	    # redirige où tu veux, avec un flash ou pas
-	    redirect_to gossips_path
+	    flash[:success_signin] = " "
+	    redirect_to user_path(session[:user_id])
 	  else
 	    flash.now[:danger] = 'Invalid email/password combination'
 	    render 'new'

@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   end
 
   resources :sessions, only: [:new, :create, :destroy]
+
+  resources :tags, only: [:create]
   
   #get 'users/:id', to:'user#show', as: 'users'
   #get 'gossips/:id', to:'gossip#show', as: 'gossips'

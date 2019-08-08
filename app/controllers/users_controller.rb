@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     city = City.find_or_create_by(name: params[:name], zip_code: params[:zip_code])
     @user = User.create(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], city: city, age: params[:age], description: params[:description], password: params[:password], password_confirmation: params[:password_confirmation])
       if @user.save 
-          flash[:success] = "Vous êtes inscrits !"
+          flash[:success_user_signup] = ""
           session[:user_id] = @user.id
           redirect_to index_path
       else

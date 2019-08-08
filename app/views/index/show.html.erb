@@ -9,20 +9,12 @@
 	<!-------------------------- SUCCESS MESSAGE -------------------------->
 
 
-
- 
 		<% if flash[:success] %>
 			<div class="alert alert-success" role="alert">
 	 			<p>Votre gossip à bien été enregistré ! </p>
 
 		  	</div>
 		<% end %> 
-
-
-
-  
-	<!-------------------------- SUCCESS MESSAGE -------------------------->
-
 
 
  
@@ -32,6 +24,13 @@
 
 		  	</div>
 		<% end %> 
+
+		<% if flash[:success_user_signup] %>
+			<div class="alert alert-success" role="alert">
+	 			<p>Félicitations, vous êtes inscrits !</p>
+
+		  	</div>
+		<% end %>
 
 
 	<!-------------------------- CONTAINER -------------------------->
@@ -62,6 +61,13 @@
 				<div class="card-body">
 			  		<h3 class="card-title"><%=link_to gossip.title, gossip_path(gossip.id) %> </h3>
 			  		<p class="card-text"><%= gossip.user.first_name %></p>
+			  		<blockquote class="blockquote mb-0">
+					  			<footer class="blockquote-footer text-right">
+						  			<% gossip.tags.each do |tag|%>
+											<p># <%= tag.title%> </p>
+									<% end %>
+								</footer>	
+					</blockquote>
 			      	    	
 			    </div>	
 	    	</div>

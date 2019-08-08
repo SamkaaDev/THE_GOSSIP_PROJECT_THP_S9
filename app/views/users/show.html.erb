@@ -5,6 +5,17 @@
   </head>
   <body>
 
+
+
+  	<!-------------------------- SUCCESS MESSAGE-------------------------->
+
+  	<% if flash[:success_signin] %>
+			<div class="alert alert-success" role="alert">
+	 			<p>Vous êtes désormais connecté à votre espace</p>
+
+		  	</div>
+		<% end %>
+
     <!-------------------------- CONTAINER -------------------------->
 
     <div class="container text-center">
