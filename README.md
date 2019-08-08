@@ -6,13 +6,15 @@ Projet pensé par Samuel et Sarah
 
 Que faire en ouvrant le dossier?
 
-$bundle install 
+$ git clone
 
-$rails db:migrate 
+$ bundle install 
 
-$rails db:seed
+$ rails db:migrate 
 
-$rails server
+$ rails db:seed
+
+$ rails server
 
 puis >> >> >> >> http://localhost:3000/index
 
