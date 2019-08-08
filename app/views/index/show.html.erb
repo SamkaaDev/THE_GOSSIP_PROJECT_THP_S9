@@ -37,41 +37,60 @@
 
 	<div class="container justify-content-center">
 
-		<div class="row text-center">
+		<div class="row text-center ">
 			<div class="col-lg-12">
-			<br>
-			<br>
-			<br>
-			<br>
-			<h1 class="text-center">BIENVENUE DANS GOSSIP NEWS</h1>
-			<br/>
-		<p>The Hacking Project est une chouette formation, où la communauté est reine. Il se passe plein de choses à Rennes, Paris, Lyon, Montpellier, Bordeaux et c'est dur de connaître tous les gossips. Nous avons donc créé une application où tout le monde peut ajouter des gossips sur ses camarades moussaillons.</p>
-		<br/>
-		<br/>
-		<button class=" btn btn-dark btn-lg" role="button" aria-pressed="true"><%=link_to 'Nouveau gossip ?', new_gossip_path %> </button>
+				<br>
+				<br>
+				<br>
+				<br>
+				<h1 class="text-center">BIENVENUE <br> SUR THE GOSSIP PROJECT</h1>
+				<br/>
+				<p>The Hacking Project est une chouette formation, où la communauté est reine. Il se passe plein de choses à Rennes, Paris, Lyon, Montpellier, Bordeaux et c'est dur de connaître tous les gossips. Samuel et Sarah ont créé une application où tout le monde peut ajouter des gossips sur ses camarades moussaillons. </p>
+				<br/>
+				<br/>
+				<button class=" btn btn-outline-dark btn-outline-primary btn-lg"><%=link_to 'Créer un gossip', new_gossip_path %> </button>
 
-		<br/>	
-		<br/>
-		<br/>
-		<br/> 
+				<br/>	
+				<br/>
+				<br/>
+				<br/> 
+				<br/>	
+				<br/>
+				<br/>
+				<br/>
+			</div>	
+		</div>
+		
 
+		<div class="row justify-content-center">
+			<div class="col-lg-6">
 		<!-- Ici, on lui demande d'afficher pour chaque gossip, l'auteur + le contenu -->
-		<% Gossip.all.each do |gossip| %>
-			<div class="card">
-				<div class="card-body">
-			  		<h3 class="card-title"><%=link_to gossip.title, gossip_path(gossip.id) %> </h3>
-			  		<p class="card-text"><%= gossip.user.first_name %></p>
-			  		<blockquote class="blockquote mb-0">
-					  			<footer class="blockquote-footer text-right">
-						  			<% gossip.tags.each do |tag|%>
-											<p># <%= tag.title%> </p>
-									<% end %>
-								</footer>	
-					</blockquote>
-			      	    	
-			    </div>	
-	    	</div>
-	    <% end %>
+				<% Gossip.all.each do |gossip| %>
+					<div class="card text-center">
+						<div class="card-header">
+					  		<h3 class="card-title"><%=link_to gossip.title, gossip_path(gossip.id) %> </h3>
+						</div>
+
+					  	<div class="card-body">
+					  		<p class="card-text"><%= gossip.user.first_name %></p>
+					  	</div>
+					  	<div>	
+					  		<blockquote class="blockquote mb-0">
+							  			<footer class="blockquote-footer text-right">
+								  			<% gossip.tags.each do |tag|%>
+													<p># <%= tag.title%> </p>
+											<% end %>
+										</footer>	
+							</blockquote>
+					     
+						</div>	
+
+			    	</div>
+			    	<br>
+			    	<br>
+			    	<br>
+			    	<br>
+			    <% end %>
 
 			</div>
 		</div>
